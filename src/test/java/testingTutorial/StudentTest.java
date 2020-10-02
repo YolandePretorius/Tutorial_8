@@ -46,60 +46,46 @@ public class StudentTest {
 				
 	}
 	
+	//Test fails as it implies that two different objects has the same hascode
 	@Test
-	public void testHashcodesAssertTrue() { 	// this test fails as it implies that if student 1 is equal to student 2 
-		assertTrue( 							// then the hash codes will not be the same
-				student1.equals(student2) &&
-				student1.hashCode() != student2.hashCode());
-		
-				
-	}
-	
-	@Test
-	public void testHashcodesAssertTrue2() { 	
+	public void testStudentsEqualAndDifferentHashcode() { 	
 		assertTrue( 							
-				student1.equals(student2) ||
+				student1.equals(student2) &&	
+				student1.hashCode() != student2.hashCode());// two different objects should not have the same hashcode
+		
+				
+	}
+
+	@Test 
+	public void testStudentsDifferendAndSamehashcode() {
+		assertTrue(
+				(!student1.equals(student2)) &&		//If student1 is not equal to student 2 and hascodes are equal it will give a True
 				student1.hashCode() == student2.hashCode());
+	}
+	
+	
+	//The Test with OR will be true
+	
+	//if student 1 is equal to student 2 OR the hashcodes are the same
+	@Test
+	public void testStudentEqualORHashcodeEqual() { 
+		assertTrue( 							// .equals look at the objects not the memory location of studend
+				student1.equals(student2) ||	// with the or || the test will pass if students are equal or hashCodes are equal
+				student1.hashCode() == student2.hashCode()); 
 		
 				
 	}
 	
+	//if student 1 is equal to student 2 OR the hashcodes are not the same
+		@Test
+		public void testStudentEqualORHashcodeNotEqual() { 
+			assertTrue( 							// .equals look at the objects not the memory location of studend
+					student1.equals(student2) ||	// with the or || the test will pass if students are equal or hashCodes are equal
+					student1.hashCode() != student2.hashCode()); 
+			
+					
+		}
 	
-	
-	@Test 
-	public void testHashcodesAssertNotTrue() {
-		assertTrue(
-				(student1 != student2) ||
-				student1.hashCode() == student2.hashCode()
-				);
-		
-	}
-	
-	@Test 
-	public void testHashcodesAsserNotStudents() {
-		assertTrue(
-				(student1 != student2) &&
-				student1.hashCode() == student2.hashCode()
-				);
-		
-	}
-	
-	@Test 
-	public void testHashcodesAssertNotAtudentNotHash() {
-		assertTrue(
-				(student1 != student2) &&
-				student1.hashCode() != student2.hashCode()
-				);
-		
-	}
-	
-	@Test
-	public void testIdentityHashMap() {
-		assertEquals(student1.hashCode(),student2.hashCode());
-		
-	}
-	
-
 
 
 }

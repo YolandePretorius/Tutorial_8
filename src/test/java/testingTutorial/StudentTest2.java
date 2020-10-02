@@ -49,6 +49,7 @@ public class StudentTest2 {
 		 assertTrue(
 		 
 		 identity_hash.size() == 1 // identity map creates another object and place it in another memory location
+		 							// thus test will fail as there are two objects 
 		 
 		 );
 	}
@@ -58,6 +59,7 @@ public class StudentTest2 {
 		 assertTrue(
 				 
 				 hashM.size() == 1 // hashmap over writes the value stored in the current key value
+				 					//test will pass as there is only one value
 				 
 			);
 		

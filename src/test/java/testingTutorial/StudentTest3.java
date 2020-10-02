@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -31,18 +32,26 @@ class StudentTest3 {
 	}
 
 	@AfterEach
-	void tearDown() throws Exception {
+	void tearDown() {
+		List<Student> list = new ArrayList<>();
+		Student student1 =new Student();
+		Student student2 =new Student();
 	}
-
-	@Test (expected  = UnsupportedOperationException.class)
-	void testForException() {
-		try {
-		List<Student> list2 = Collections.unmodifiableList(list);
-		System.out.println("Unmodifiable List: " + list2);
-		list2.add(student2);
-		}catch(Exception e) {
-			assertThat(e,UnsupportedOperationException)
-		}
+	
+	// method will pass test as an unsuported exception in thrown
+	@Test 
+	void testForException() {  
+		Exception exception = assertThrows(UnsupportedOperationException.class,() ->{
+			List<Student> list2 = Collections.unmodifiableList(list);
+			System.out.println("Unmodifiable List: "+ list2);
+			list2.add(student2);
+		});
+		
+		assertEquals("java.lang.UnsupportedOperationException", exception.toString());
 	}
+	
+	
+	
+	
 
 }
