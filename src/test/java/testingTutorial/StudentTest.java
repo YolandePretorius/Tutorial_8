@@ -64,7 +64,7 @@ public class StudentTest {
 	}
 	
 	
-	//The Test with OR will be true
+	//The Tests with OR will be true
 	
 	//if student 1 is equal to student 2 OR the hashcodes are the same
 	@Test
