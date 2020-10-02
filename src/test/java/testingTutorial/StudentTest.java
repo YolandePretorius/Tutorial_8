@@ -18,6 +18,7 @@ public class StudentTest {
 		student1.setName("Bob");
 		//student1.setId(012020);
 		
+		
 		student2.setName("Bob");
 		//student2.setId(022020);
 
@@ -74,9 +75,27 @@ public class StudentTest {
 		
 	}
 	
+	@Test 
+	public void testHashcodesAsserNotStudents() {
+		assertTrue(
+				(student1 != student2) &&
+				student1.hashCode() == student2.hashCode()
+				);
+		
+	}
+	
+	@Test 
+	public void testHashcodesAssertNotAtudentNotHash() {
+		assertTrue(
+				(student1 != student2) &&
+				student1.hashCode() != student2.hashCode()
+				);
+		
+	}
+	
 	@Test
 	public void testIdentityHashMap() {
-		assertEquals(student1.,student2.hashCode());
+		assertEquals(student1.hashCode(),student2.hashCode());
 		
 	}
 	
